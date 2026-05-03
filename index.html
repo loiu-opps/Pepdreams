@@ -34,7 +34,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#shop">Shop</a></li>
-      <li><a href="#order">Order</a></li>
+      <li><a href="#" onclick="openAboutModal(); return false;">About us</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
@@ -60,10 +60,6 @@
     </h1>
     <p class="lede">Curated peptides — Retatrutide and GHK-Cu — sourced for precision and built for the journey. Order today, transform tomorrow.</p>
     <div class="cta-row">
-      <a href="#order" class="btn btn-primary">
-        Order now
-        <span class="arrow">→</span>
-      </a>
       <a href="#shop" class="btn btn-ghost">Browse Shop</a>
     </div>
   </div>
@@ -193,14 +189,14 @@
         <div class="sec-label">The Catalog</div>
         <h2>Precision peptides, <em>curated.</em></h2>
       </div>
-      <a href="#order" class="btn btn-ghost">Order now →</a>
     </div>
 
     <div class="product-grid">
       <div class="product reveal"
            data-name="Retatrutide 10mg"
            data-price="2200"
-           data-img="reta.png"
+           data-stock="13"
+           data-img="product%20picture/reta.png"
            data-desc="Retatrutide is a synthetic peptide commonly studied for its interaction with multiple metabolic signaling pathways. In research settings, it is of particular interest due to its activity at three receptors: GLP-1, GIP, and glucagon.||This multi-receptor profile has made Retatrutide a focus of research exploring metabolism, energy regulation, and body weight-related pathways.||Retatrutide is frequently included in studies examining appetite-related signaling, metabolic function, and overall physiological balance.||This compound is supplied in lyophilized (powder) form and is intended for research purposes only. Retatrutide is often studied for its unique multi-pathway approach to metabolic and energy-related processes."
            data-specs="Triple-agonist (GLP-1 · GIP · GCGR)|10 mg per vial|Research grade · Lab-tested|Third-party verified|Discreet &amp; insured shipping">
         <div class="product-img">
@@ -209,6 +205,7 @@
         </div>
         <h3>Retatrutide 10mg</h3>
         <div class="sub">Triple-agonist · Weight management</div>
+        <div class="stock-badge"><span class="stock-dot"></span><span class="stock-text">13 left</span></div>
         <div class="product-foot">
           <span class="price">₱2,200</span>
           <div class="product-actions">
@@ -221,7 +218,8 @@
       <div class="product reveal"
            data-name="GHK-Cu 50mg"
            data-price="1700"
-           data-img="ghk.png"
+           data-stock="6"
+           data-img="product%20picture/ghk.png"
            data-desc="GHK-Cu (Glycyl-L-Histidyl-L-Lysine Copper) is a naturally occurring copper-binding tripeptide extensively studied for its role in cellular signaling and regenerative processes.||Research indicates GHK-Cu plays a significant role in collagen and glycosaminoglycan synthesis, tissue repair, and anti-inflammatory activity — making it a compound of major interest in skin and wound-healing research.||GHK-Cu has also been studied for its antioxidant properties and its interaction with gene expression pathways associated with skin aging, tissue remodeling, and cellular regeneration.||This compound is supplied in lyophilized (powder) form and is intended for research purposes only. GHK-Cu is frequently studied for its potential role in skin health, wound healing, and cellular regeneration."
            data-specs="Copper tripeptide complex|50 mg per vial|Research grade · Lab-tested|Third-party verified|Discreet &amp; insured shipping">
         <div class="product-img">
@@ -230,6 +228,7 @@
         </div>
         <h3>GHK-Cu 50mg</h3>
         <div class="sub">Skin repair · Anti-aging</div>
+        <div class="stock-badge"><span class="stock-dot"></span><span class="stock-text">6 left</span></div>
         <div class="product-foot">
           <span class="price">₱1,700</span>
           <div class="product-actions">
@@ -248,7 +247,7 @@
     <div class="sec-head reveal">
       <div>
         <div class="sec-label">Place Your Order</div>
-        <h2>Three steps <em>— done in minutes.</em></h2>
+        <h2>Your order, <em>handled with care.</em></h2>
       </div>
     </div>
 
@@ -287,167 +286,41 @@
         </ul>
       </div>
 
-      <!-- Multi-step Form -->
-      <form id="orderForm" class="reveal" novalidate>
-        <!-- Progress bar -->
-        <div class="progress">
-          <div class="progress-bar" id="progressBar"></div>
-          <div class="progress-labels">
-            <span class="active" data-label="1">Product</span>
-            <span data-label="2">Details</span>
-            <span data-label="3">Review</span>
-          </div>
-        </div>
-
-        <!-- Step 1: Product -->
-        <div class="form-step active" data-step="1">
-          <h3 class="step-title">Choose your product</h3>
-          <div class="product-options">
-            <label class="product-option">
-              <input type="radio" name="product" value="Retatrutide 10mg" data-price="2200" required/>
-              <div class="opt-card">
-                <div class="opt-name">Retatrutide 10mg</div>
-                <div class="opt-sub">Weight management</div>
-                <div class="opt-price">₱2,200</div>
-              </div>
-            </label>
-            <label class="product-option">
-              <input type="radio" name="product" value="GHK-Cu 50mg" data-price="1700"/>
-              <div class="opt-card">
-                <div class="opt-name">GHK-Cu 50mg</div>
-                <div class="opt-sub">Skin · Anti-aging</div>
-                <div class="opt-price">₱1,700</div>
-              </div>
-            </label>
-          </div>
-
-          <div class="field">
-            <label for="qty">Quantity</label>
-            <div class="qty-control">
-              <button type="button" class="qty-btn" data-action="dec">−</button>
-              <input id="qty" type="number" value="1" min="1" max="20"/>
-              <button type="button" class="qty-btn" data-action="inc">+</button>
+      <!-- Contact Form -->
+      <div class="order-cta reveal" id="contact-form-block">
+        <p class="order-cta-lead">Get in touch.</p>
+        <p class="order-cta-text">Have a question? Send us a message and we'll get back to you within 24 hours.</p>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label class="cf-label" for="cfName">First Name</label>
+              <input class="cf-input" id="cfName" type="text" placeholder="Your name"/>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="cfLname">Last name</label>
+              <input class="cf-input" id="cfLname" type="text" placeholder="Your last name"/>
             </div>
           </div>
-
-          <div class="form-actions">
-            <button type="button" class="submit-btn next-btn" data-next="2">Continue →</button>
+          <div class="cf-field">
+            <label class="cf-label" for="cfEmail">Your email <span class="cf-req">*</span></label>
+            <input class="cf-input" id="cfEmail" type="email" placeholder="Your email address" required/>
           </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cfMessage">Message <span class="cf-req">*</span></label>
+            <textarea class="cf-input cf-textarea" id="cfMessage" placeholder="Enter your message" required></textarea>
+          </div>
+          <div class="cf-footer">
+            <button type="submit" class="btn order-cta-btn cf-submit">Send message</button>
+          </div>
+        </form>
+        <div class="cf-success" id="cfSuccess" style="display:none">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="var(--gold)" stroke-width="1.5"/><path d="M12 20l6 6 10-12" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Message sent! We'll reply within 24 hours.</p>
         </div>
-
-        <!-- Step 2: Details -->
-        <div class="form-step" data-step="2">
-          <h3 class="step-title">Your details</h3>
-          <div class="row">
-            <div class="field">
-              <label for="fname">First name</label>
-              <input id="fname" type="text" placeholder="Juan" required/>
-            </div>
-            <div class="field">
-              <label for="lname">Last name</label>
-              <input id="lname" type="text" placeholder="Dela Cruz" required/>
-            </div>
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@email.com" required/>
-          </div>
-          <div class="field">
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" type="tel" placeholder="+63 9XX XXX XXXX"/>
-          </div>
-          <div class="field">
-            <label for="address">Shipping address</label>
-            <textarea id="address" placeholder="Street, City, Province, Zip Code" required></textarea>
-          </div>
-          <div class="field">
-            <label for="payment">Payment method</label>
-            <div class="payment-options">
-              <label class="pay-option">
-                <input type="radio" name="payment" value="GCash" required/>
-                <span>GCash</span>
-              </label>
-              <label class="pay-option">
-                <input type="radio" name="payment" value="Bank Transfer"/>
-                <span>Bank Transfer</span>
-              </label>
-            </div>
-          </div>
-          <div class="field">
-            <label for="msg">Message (optional)</label>
-            <textarea id="msg" placeholder="Special instructions or notes..."></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="button" class="back-btn" data-back="1">← Back</button>
-            <button type="button" class="submit-btn next-btn" data-next="3">Review →</button>
-          </div>
-        </div>
-
-        <!-- Step 3: Review -->
-        <div class="form-step" data-step="3">
-          <h3 class="step-title">Review your order</h3>
-          <div class="summary" id="summary"></div>
-
-          <div class="form-actions">
-            <button type="button" class="back-btn" data-back="2">← Back</button>
-            <button type="button" class="submit-btn" id="openTermsBtn">Continue to Terms →</button>
-          </div>
-        </div>
-
-        <!-- Step 4: Success -->
-        <div class="form-step success-step" data-step="4">
-          <div class="success-icon">
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-              <circle cx="30" cy="30" r="28" stroke="#d4b56a" stroke-width="1.5"/>
-              <path d="M18 30l8 8 16-16" stroke="#d4b56a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="step-title">Order received</h3>
-          <p class="success-text">Thank you. We've sent a confirmation to your email and our team will reach out within 24 hours with payment instructions.</p>
-          <div class="order-ref" id="orderRef">REF: —</div>
-          <button type="button" class="submit-btn" id="newOrderBtn">Place another order</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- Terms & Conditions Modal -->
-<div class="modal-overlay" id="termsModal" aria-hidden="true">
-  <div class="modal" role="dialog" aria-labelledby="termsTitle">
-    <button class="modal-close" id="modalCloseBtn" aria-label="Close">×</button>
-    <div class="modal-header">
-      <div class="sec-label">Final Step</div>
-      <h3 id="termsTitle">Terms & Conditions</h3>
-    </div>
-    <div class="modal-body">
-      <p class="modal-intro">By purchasing from <strong>Pepdream Labs</strong>, you agree to the following:</p>
-      <ul class="terms-list">
-        <li>
-          <strong>Premium Quality:</strong> Products are sourced for premium quality and laboratory standards. The purchaser is fully responsible for legal, safe, and appropriate usage. No warranties.
-        </li>
-        <li>
-          <strong>Sales Are Final:</strong> All sales are final. No returns, refunds, or exchanges. Risk transfers to the buyer upon delivery.
-        </li>
-        <li>
-          <strong>Liability:</strong> Our liability is strictly limited to the purchase price. We are not liable for misuse of the products. All content is owned by Pepdream Labs.
-        </li>
-        <li>
-          <strong>Legal:</strong> This agreement is governed by Philippine law. Any disputes will be settled in the Philippines. Continued site use denotes acceptance of updates.
-        </li>
-      </ul>
-      <label class="check">
-        <input type="checkbox" id="agreeTerms"/>
-        <span>I have read and agree to the Terms & Conditions above.</span>
-      </label>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="back-btn" id="declineBtn">Decline</button>
-      <button type="button" class="submit-btn" id="confirmSubmitBtn" disabled>Agree & Submit Order</button>
-    </div>
-  </div>
-</div>
 
 <!-- Footer -->
 <footer id="contact">
@@ -456,18 +329,10 @@
       <img src="logo.png" alt="Pepdream Labs" class="foot-logo"/>
       <p>Where science meets your dream body. Premium peptides for the journey ahead.</p>
       <div class="socials">
-        <a class="soc" href="#" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="10.5" cy="3.5" r="0.6" fill="currentColor"/></svg></a>
+        <a class="soc" href="https://www.instagram.com/pepdreams67/" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="10.5" cy="3.5" r="0.6" fill="currentColor"/></svg></a>
         <a class="soc" href="#" aria-label="TikTok"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 1v8.5a2.5 2.5 0 11-2.5-2.5M9 1c0 1.5 1 3 3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></a>
-        <a class="soc" href="#" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8 13V7h2l.3-2.3H8V3.5c0-.7.2-1.1 1.2-1.1H10.4V.4C10 .3 9.3.3 8.5.3 6.7.3 5.5 1.4 5.5 3.3V4.7H4V7h1.5v6" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></a>
+        <a class="soc" href="https://www.facebook.com/profile.php?id=61588978352146" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8 13V7h2l.3-2.3H8V3.5c0-.7.2-1.1 1.2-1.1H10.4V.4C10 .3 9.3.3 8.5.3 6.7.3 5.5 1.4 5.5 3.3V4.7H4V7h1.5v6" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></a>
       </div>
-    </div>
-    <div class="foot-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#contact">About us</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#">FAQ</a></li>
-      </ul>
     </div>
     <div class="foot-col">
       <h4>Legal</h4>
@@ -488,6 +353,21 @@
 </button>
 
 <div class="toast" id="toast">Order submitted ✓</div>
+
+<!-- About Us Modal -->
+<div class="policy-backdrop" id="aboutBackdrop" onclick="closeAboutModal()"></div>
+<div class="policy-modal shipping-modal" id="aboutModal">
+  <button class="policy-close" onclick="closeAboutModal()" aria-label="Close">✕</button>
+  <div class="shipping-content">
+    <h3>About Us</h3>
+    <p>Pepdream Labs was founded in 2025 with one goal: to make research-grade peptides accessible, transparent, and trustworthy. We are a Philippines-based supplier committed to delivering only the highest-quality compounds to the research community.</p>
+    <p><strong>Our Mission</strong><br/>We believe that precision peptides should be held to the highest standard — from synthesis to your doorstep. Every vial we carry is third-party lab-tested and verified for purity, so you can focus on your research with complete confidence.</p>
+    <p><strong>What We Offer</strong><br/>Our current catalog features Retatrutide and GHK-Cu, two of the most studied peptides in modern research. We continue to expand our lineup based on the latest scientific literature and community feedback.</p>
+    <p><strong>How We Operate</strong><br/>Orders are processed personally by our team. We communicate directly with every customer, provide discreet and insured shipping, and follow up to make sure your order arrives safely. No bots, no middlemen.</p>
+    <p><strong>Research Use Only</strong><br/>All products sold by Pepdream Labs are strictly for research purposes. We are transparent about this and committed to responsible sourcing and distribution.</p>
+    <p>Questions? Reach us through our contact form or on social media — we're always happy to help.</p>
+  </div>
+</div>
 
 <!-- Terms & Conditions Modal -->
 <div class="policy-backdrop" id="termsBackdrop" onclick="closeTermsModal()"></div>
@@ -532,7 +412,7 @@
     <p><strong>Tracking:</strong> A tracking number will be provided once your order has been shipped.</p>
     <p><strong>Delays:</strong> Once shipped, Pepdream Labs is not responsible for delays caused by the courier.</p>
     <p><strong>Packaging:</strong> All orders are packed discreetly for your privacy.</p>
-    <p><strong>Free Shipping:</strong> Free shipping on orders over ₱5,000.</p>
+    <p><strong>Free Shipping:</strong> Free shipping on orders over ₱5,000. Local orders within Puerto Princesa City are always delivered free, regardless of order amount.</p>
   </div>
 </div>
 
@@ -557,6 +437,142 @@
     </div>
   </div>
 </div>
+
+<!-- Checkout Overlay -->
+<div class="checkout-overlay" id="checkoutOverlay" aria-hidden="true">
+  <div class="checkout-wrap">
+    <header class="checkout-header">
+      <a href="#" class="logo" onclick="closeCheckout();return false;">
+        <img src="logo.png" alt="Pepdream Labs" class="logo-img"/>
+      </a>
+      <button class="checkout-close" id="checkoutClose" aria-label="Close checkout">×</button>
+    </header>
+
+    <div class="checkout-body" id="checkoutBody">
+
+      <!-- Form state -->
+      <div id="coFormState">
+        <div class="checkout-form-col">
+          <form id="checkoutForm" novalidate>
+
+            <div class="co-section">
+              <h3 class="co-section-title">Contact</h3>
+              <div class="co-field"><input id="coEmail" type="email" placeholder="Email" required/></div>
+            </div>
+
+            <div class="co-section">
+              <h3 class="co-section-title">Delivery</h3>
+              <div class="co-row">
+                <div class="co-field"><input id="coFname" type="text" placeholder="First name" required/></div>
+                <div class="co-field"><input id="coLname" type="text" placeholder="Last name" required/></div>
+              </div>
+              <div class="co-field"><input id="coAddress" type="text" placeholder="Address" required/></div>
+              <div class="co-row">
+                <div class="co-field"><input id="coCity" type="text" placeholder="City" required/></div>
+                <div class="co-field"><input id="coProvince" type="text" placeholder="Province"/></div>
+              </div>
+              <div class="co-field"><input id="coPhone" type="tel" placeholder="Phone number"/></div>
+            </div>
+
+            <div class="co-section">
+              <h3 class="co-section-title">Payment</h3>
+              <div class="co-pay-options">
+                <label class="co-pay-option">
+                  <input type="radio" name="coPayment" value="GCash" required/>
+                  <div class="co-pay-card">
+                    <div class="co-pay-radio"></div>
+                    <div class="co-pay-info">
+                      <div class="co-pay-name">GCash</div>
+                      <div class="co-pay-desc">Payment details will be sent to your email. Orders unpaid within 3 hours are cancelled.</div>
+                    </div>
+                  </div>
+                </label>
+                <label class="co-pay-option">
+                  <input type="radio" name="coPayment" value="Bank Transfer"/>
+                  <div class="co-pay-card">
+                    <div class="co-pay-radio"></div>
+                    <div class="co-pay-info">
+                      <div class="co-pay-name">Bank Transfer</div>
+                      <div class="co-pay-desc">BDO or BPI. Bank details sent to your email after order is received.</div>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="co-checks">
+              <label class="co-check">
+                <input type="checkbox" id="coAgree" required/>
+                <span>I agree to the <a href="#" onclick="openTermsModal();return false;">Terms &amp; Conditions</a> and <a href="#" onclick="openPrivacyModal();return false;">Privacy Policy</a></span>
+              </label>
+            </div>
+
+            <button type="submit" class="co-submit-btn">Place order</button>
+          </form>
+        </div>
+
+        <div class="checkout-summary-col">
+          <div class="co-summary-inner">
+            <div id="coItems" class="co-items"></div>
+            <div class="co-summary-lines">
+              <div class="co-sum-row">
+                <span>Subtotal</span>
+                <span id="coSubtotal">₱0</span>
+              </div>
+              <div class="co-sum-row">
+                <span>Shipping</span>
+                <span class="co-ship-note">Calculated at delivery</span>
+              </div>
+              <div class="co-sum-row co-total-row">
+                <span>Total</span>
+                <span id="coTotal">₱0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div id="coSuccessState" style="display:none">
+        <div class="co-success">
+          <div class="co-success-icon">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="30" stroke="var(--green-deep)" stroke-width="1.5"/>
+              <path d="M20 32l8 8 16-16" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Order received</h3>
+          <p id="coSuccessText">Thank you! Our team will reach out within 24 hours with payment instructions.</p>
+          <div class="co-success-ref" id="coSuccessRef">REF: —</div>
+          <button type="button" class="co-submit-btn" id="coNewOrderBtn">Continue shopping</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Cart Drawer -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag">
+  <div class="cart-drawer-head">
+    <h2 class="cart-title">Shopping bag</h2>
+    <button class="cart-drawer-close" id="cartDrawerClose" aria-label="Close cart">×</button>
+  </div>
+  <div class="cart-drawer-items" id="cartItems"></div>
+  <div class="cart-drawer-foot" id="cartFoot">
+    <div class="cart-subtotal-row">
+      <span>Subtotal:</span>
+      <span class="cart-sub-val" id="cartSubtotal">₱0</span>
+    </div>
+    <p class="cart-ship-note">Shipping calculated at checkout</p>
+    <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+    <p class="cart-secure">
+      <svg width="11" height="13" viewBox="0 0 11 13" fill="none"><path d="M2 5V3.5a3.5 3.5 0 017 0V5M1 5h9a1 1 0 011 1v5a1 1 0 01-1 1H1a1 1 0 01-1-1V6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+      Secure checkout
+    </p>
+  </div>
+</aside>
 
 <script src="script.js"></script>
 </body>
