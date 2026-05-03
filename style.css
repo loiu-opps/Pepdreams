@@ -142,21 +142,21 @@ nav{
 .hero{
   position:relative;
   min-height:90vh;
-  padding:80px 36px 100px;
+  padding:80px max(36px, calc((100vw - 1280px) / 2 + 36px)) 100px;
   display:grid;
   grid-template-columns:1.1fr 0.9fr;
   gap:60px;
   align-items:center;
-  max-width:1280px;
-  margin:0 auto;
+  background:var(--beige);
 }
 .hero::before{
   content:'';
   position:absolute;
-  top:60px;right:36px;
-  width:280px;height:280px;
-  background:radial-gradient(circle,var(--sand) 0%,transparent 70%);
-  opacity:0.6;
+  top:60px;
+  right:max(36px, calc((100vw - 1280px) / 2 + 36px));
+  width:320px;height:320px;
+  background:radial-gradient(circle,var(--gold-soft) 0%,transparent 70%);
+  opacity:0.28;
   z-index:0;
   pointer-events:none;
 }
@@ -260,7 +260,7 @@ h1.headline .br{display:block}
   inset:0;
   border-radius:8px;
   overflow:hidden;
-  background:linear-gradient(135deg,var(--green-mid),var(--green-deep));
+  background:linear-gradient(135deg,#3e6b54,#2a5240);
 }
 .vials svg{
   position:absolute;
@@ -392,7 +392,7 @@ h2 em{font-style:italic;color:var(--gold);font-weight:400}
   border-color:var(--green-deep);
 }
 .product-img{
-  height:300px;
+  height:380px;
   background:linear-gradient(160deg,var(--sand),var(--beige));
   border-radius:4px;
   margin-bottom:24px;
@@ -493,7 +493,7 @@ h2 em{font-style:italic;color:var(--gold);font-weight:400}
   height:100%;
   object-fit:contain;
   object-position:center;
-  padding:20px 28px;
+  padding:12px 20px;
   position:relative;
   z-index:1;
   transition:transform .45s ease;
