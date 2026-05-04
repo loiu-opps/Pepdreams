@@ -196,12 +196,12 @@
            data-name="Retatrutide 10mg"
            data-price="2200"
            data-stock="13"
-           data-img="reta.png"
+           data-img="product%20picture/reta.png"
            data-desc="Retatrutide is a synthetic peptide commonly studied for its interaction with multiple metabolic signaling pathways. In research settings, it is of particular interest due to its activity at three receptors: GLP-1, GIP, and glucagon.||This multi-receptor profile has made Retatrutide a focus of research exploring metabolism, energy regulation, and body weight-related pathways.||Retatrutide is frequently included in studies examining appetite-related signaling, metabolic function, and overall physiological balance.||This compound is supplied in lyophilized (powder) form and is intended for research purposes only. Retatrutide is often studied for its unique multi-pathway approach to metabolic and energy-related processes."
            data-specs="Triple-agonist (GLP-1 · GIP · GCGR)|10 mg per vial|Research grade · Lab-tested|Third-party verified|Discreet &amp; insured shipping">
         <div class="product-img">
           <span class="product-tag">Bestseller</span>
-          <img src="reta.png" class="product-photo" alt="Retatrutide 10mg"/>
+          <img src="product%20picture/reta.png" class="product-photo" alt="Retatrutide 10mg"/>
         </div>
         <h3>Retatrutide 10mg</h3>
         <div class="sub">Triple-agonist · Weight management</div>
@@ -219,12 +219,12 @@
            data-name="GHK-Cu 50mg"
            data-price="1700"
            data-stock="6"
-           data-img="ghk.png"
+           data-img="product%20picture/ghk.png"
            data-desc="GHK-Cu (Glycyl-L-Histidyl-L-Lysine Copper) is a naturally occurring copper-binding tripeptide extensively studied for its role in cellular signaling and regenerative processes.||Research indicates GHK-Cu plays a significant role in collagen and glycosaminoglycan synthesis, tissue repair, and anti-inflammatory activity — making it a compound of major interest in skin and wound-healing research.||GHK-Cu has also been studied for its antioxidant properties and its interaction with gene expression pathways associated with skin aging, tissue remodeling, and cellular regeneration.||This compound is supplied in lyophilized (powder) form and is intended for research purposes only. GHK-Cu is frequently studied for its potential role in skin health, wound healing, and cellular regeneration."
            data-specs="Copper tripeptide complex|50 mg per vial|Research grade · Lab-tested|Third-party verified|Discreet &amp; insured shipping">
         <div class="product-img">
           <span class="product-tag">New</span>
-          <img src="ghk.png" class="product-photo" alt="GHK-Cu 50mg"/>
+          <img src="product%20picture/ghk.png" class="product-photo" alt="GHK-Cu 50mg"/>
         </div>
         <h3>GHK-Cu 50mg</h3>
         <div class="sub">Skin repair · Anti-aging</div>
@@ -468,10 +468,18 @@
               </div>
               <div class="co-field"><input id="coAddress" type="text" placeholder="Address" required/></div>
               <div class="co-row">
-                <div class="co-field"><input id="coCity" type="text" placeholder="City" required/></div>
-                <div class="co-field"><input id="coProvince" type="text" placeholder="Province"/></div>
+                <div class="co-field">
+                  <select id="coProvince" required>
+                    <option value="" disabled selected>Province</option>
+                  </select>
+                </div>
+                <div class="co-field">
+                  <select id="coCity" required disabled>
+                    <option value="" disabled selected>City / Municipality</option>
+                  </select>
+                </div>
               </div>
-              <div class="co-field"><input id="coPhone" type="tel" placeholder="Phone number"/></div>
+              <div class="co-field"><input id="coPhone" type="tel" placeholder="Phone number" inputmode="numeric" pattern="[0-9]*" maxlength="11"/></div>
             </div>
 
             <div class="co-section">
@@ -505,6 +513,10 @@
                 <input type="checkbox" id="coAgree" required/>
                 <span>I agree to the <a href="#" onclick="openTermsModal();return false;">Terms &amp; Conditions</a> and <a href="#" onclick="openPrivacyModal();return false;">Privacy Policy</a></span>
               </label>
+              <div id="coAgreeError" class="co-agree-error" aria-live="polite">
+                <span class="co-agree-error-icon">!</span>
+                Please agree to the Terms &amp; Conditions before placing your order.
+              </div>
             </div>
 
             <button type="submit" class="co-submit-btn">Place order</button>
