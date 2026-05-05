@@ -1,5 +1,5 @@
 /* ============================================
-   Pepdream Labs — Order Flow Script
+   Pepdreams — Order Flow Script
    ============================================ */
 
 // ---------- Marquee / strip fill ----------
@@ -527,7 +527,7 @@ document.addEventListener('keydown', (e) => {
 document.getElementById('waBtn').addEventListener('click', () => {
   // Replace with your actual WhatsApp number
   const phone = '639272348087';
-  const message = encodeURIComponent("Hi Pepdream Labs! I'd like to inquire about your products.");
+  const message = encodeURIComponent("Hi Pepdreams! I'd like to inquire about your products.");
   window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 });
 // ---------- Policy & Shipping modals ----------
@@ -669,7 +669,7 @@ function generateOrderRef() {
         name: (document.getElementById('cfName').value + ' ' + document.getElementById('cfLname').value).trim(),
         email,
         message,
-        _subject: 'New message from Pepdream Labs website'
+        _subject: 'New message from Pepdreams website'
       })
     }).catch(()=>{});
 
